@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { readdir, lstatSync, lstat } from "fs";
 import { extname, dirname, join } from "path";
 import imagemin from "imagemin";
