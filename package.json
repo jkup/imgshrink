@@ -1,0 +1,26 @@
+{
+  "name": "imgshrink",
+  "version": "0.0.1",
+  "description": "Optimize images to be embedded in websites.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jkup/imgshrink.git"
+  },
+  "keywords": [
+    "image",
+    "optimizer",
+    "svg",
+    "png",
+    "jpg"
+  ],
+  "author": "Jon Kuperman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jkup/imgshrink/issues"
+  },
+  "homepage": "https://github.com/jkup/imgshrink#readme"
+}
