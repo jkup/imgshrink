@@ -1,5 +1,6 @@
 {
   "name": "imgshrink",
+  "type": "module",
   "version": "0.0.1",
   "description": "Optimize images to be embedded in websites.",
   "main": "index.js",
