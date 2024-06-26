@@ -1,6 +1,4 @@
-#!/usr/bin/env node
-
-import { readdir, lstatSync, lstat } from "fs";
+import { readdir, lstatSync } from "fs";
 import { extname, dirname, join } from "path";
 import imagemin from "imagemin";
 import imageminJpegtran from "imagemin-jpegtran";
@@ -8,7 +6,7 @@ import imageminPngquant from "imagemin-pngquant";
 import imageminGifsicle from "imagemin-gifsicle";
 import imageminSvgo from "imagemin-svgo";
 
-async function optimizeImage(filePath) {
+export async function optimizeImage(filePath) {
   const ext = extname(filePath).toLowerCase();
   let plugins = [];
 
@@ -42,7 +40,7 @@ async function optimizeImage(filePath) {
   }
 }
 
-async function optimizeImagesInFolder(folderPath) {
+export async function optimizeImagesInFolder(folderPath) {
   readdir(folderPath, (err, files) => {
     if (err) {
       console.error(`Error reading folder: ${err}`);
@@ -57,25 +55,3 @@ async function optimizeImagesInFolder(folderPath) {
     });
   });
 }
-
-const targetPath = process.argv[2];
-if (!targetPath) {
-  console.log("Please provide a file or folder path.");
-  process.exit(1);
-}
-
-lstat(targetPath, (err, stats) => {
-  if (err) {
-    console.error(`Error reading path: ${err}`);
-    process.exit(1);
-  }
-
-  if (stats.isFile()) {
-    optimizeImage(targetPath);
-  } else if (stats.isDirectory()) {
-    optimizeImagesInFolder(targetPath);
-  } else {
-    console.log("Invalid path. Please provide a valid file or folder path.");
-    process.exit(1);
-  }
-});
